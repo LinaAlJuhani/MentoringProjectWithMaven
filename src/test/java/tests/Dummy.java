@@ -28,21 +28,31 @@ Faker faker =new Faker();
 
     @Test
     void testIframeAndNotification() throws InterruptedException{
+        driver.get("https://demoqa.com/frames");
 
-            driver.get("http://demo.guru99.com/test/guru99home/");
+        List<WebElement> IFRAMES = driver.findElements(By.tagName("iframe"));
+        System.out.println("iframe size"+IFRAMES.size());
 
-         //   List<WebElement> frame = driver.findElements(B)
+        driver.switchTo().frame("frame1");
+        WebElement MASS = driver.findElement(By.id("sampleHeading"));
+        System.out.println("mass"+MASS.getText());
+
+        driver.switchTo().defaultContent();
+
+        driver.switchTo().frame("frame2");
+
+        WebElement MASS2 = driver.findElement(By.id("sampleHeading"));
+        System.out.println("mass2"+MASS2.getText());
 
 
 
-
-
-
-
-        }
+}
 
 
     }
+
+
+
 
 
 
